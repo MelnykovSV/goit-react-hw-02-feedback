@@ -1,9 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { IFeedbackOptionsProps } from '../../interfaces';
+import { Container } from './FeedbackOptions.styled';
 
-export class FeedbackOptions extends Component {
+export class FeedbackOptions extends React.Component<
+  IFeedbackOptionsProps,
+  {}
+> {
   render() {
     return (
-      <div className="buttons-container">
+      <Container>
         <button
           type="button"
           className="button-good"
@@ -25,7 +30,7 @@ export class FeedbackOptions extends Component {
         >
           Bad
         </button>
-      </div>
+      </Container>
     );
   }
 }
