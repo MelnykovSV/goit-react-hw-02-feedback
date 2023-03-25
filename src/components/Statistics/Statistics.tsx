@@ -1,12 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { IStatisticsProps } from '../../interfaces';
+import { Container } from './Statistics.styled';
 
-export class Statistics extends Component {
+export class Statistics extends React.Component<IStatisticsProps, {}> {
   render() {
     if (!this.props.total) {
       return <p>No feedback given</p>;
     }
     return (
-      <div className="statistics-body">
+      <Container>
         <p className="response-good">Good: {this.props.good}</p>
         <p className="response-neutral">Neutral: {this.props.neutral}</p>
         <p className="response-bad">Bad: {this.props.bad}</p>
@@ -14,7 +16,7 @@ export class Statistics extends Component {
         <p className="positive-persentage">
           Positive feedback: {this.props.positiveFeedback}
         </p>
-      </div>
+      </Container>
     );
   }
 }

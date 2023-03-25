@@ -1,12 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { ISectionProps } from '../../interfaces';
+import { Container } from './Section.styled';
 
-export class Section extends Component {
+export class Section extends React.Component<ISectionProps, {}> {
   render() {
     return (
-      <section className="statistics-container">
+      <Container>
         <h3 className="statistics-title">{this.props.title}</h3>
         {this.props.children}
-      </section>
+      </Container>
     );
   }
 }
