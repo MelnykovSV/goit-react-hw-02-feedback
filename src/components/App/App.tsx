@@ -1,5 +1,7 @@
-import { FeedbackWidget } from '../FeedbackWidget/FeedbackWidget';
 import React, { Component } from 'react';
+import { Statistics } from '../Statistics/Statistics';
+import { Section } from '../Section/Section';
+import { FeedbackOptions } from '../FeedbackOptions/FeedbackOptions';
 
 export class App extends Component {
   static defaultProps = {
@@ -37,43 +39,24 @@ export class App extends Component {
         }}
       >
         <section>
-          This is my Feedback Widget
-          <h1 className="feedback-title">Please leave feedback</h1>
-          <div className="buttons-container">
-            <button
-              type="button"
-              className="button-good"
-              onClick={this.handleGoodResponse}
-            >
-              Good
-            </button>
-            <button
-              type="button"
-              className="button-neutral"
-              onClick={this.handleNeutralResponse}
-            >
-              Neutral
-            </button>
-            <button
-              type="button"
-              className="button-bad"
-              onClick={this.handleBadResponse}
-            >
-              Bad
-            </button>
-          </div>
-          <div className="statistics-container">
-            <h2 className="statistics-title">Statistics</h2>
-            <div className="statistics-body">
-              <p className="response-good">Good: {this.state.good}</p>
-              <p className="response-neutral">Neutral: {this.state.neutral}</p>
-              <p className="response-bad">Bad: {this.state.bad}</p>
-              <p className="response-total">Total: {this.calcTotal()}</p>
-              <p className="positive-persentage">
-                Positive feedback: {this.calcPositiveFeedback()}
-              </p>
-            </div>
-          </div>
+          <h2> This is my Feedback Widget</h2>
+
+          <Section title="Please leave feedback">
+            <FeedbackOptions
+              handlerGood={this.handleGoodResponse}
+              handlerNeutral={this.handleNeutralResponse}
+              handlerBad={this.handleBadResponse}
+            />
+          </Section>
+          <Section title="Statistics">
+            <Statistics
+              good={this.state.good}
+              neutral={this.state.neutral}
+              bad={this.state.bad}
+              total={this.calcTotal()}
+              positiveFeedback={this.calcPositiveFeedback()}
+            />
+          </Section>
         </section>
       </div>
     );
