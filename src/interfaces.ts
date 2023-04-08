@@ -10,9 +10,7 @@ export interface ISectionProps {
 }
 
 export interface IFeedbackOptionsProps {
-  handlerGood: React.MouseEventHandler;
-  handlerNeutral: React.MouseEventHandler;
-  handlerBad: React.MouseEventHandler;
+  responseHandler: React.MouseEventHandler;
 }
 
 export interface IStatisticsProps {

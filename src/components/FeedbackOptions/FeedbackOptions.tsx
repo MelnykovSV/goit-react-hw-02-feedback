@@ -1,36 +1,33 @@
-import React from 'react';
 import { IFeedbackOptionsProps } from '../../interfaces';
 import { Container } from './FeedbackOptions.styled';
 
-export class FeedbackOptions extends React.Component<
-  IFeedbackOptionsProps,
-  {}
-> {
-  render() {
-    return (
-      <Container>
-        <button
-          type="button"
-          className="button-good"
-          onClick={this.props.handlerGood}
-        >
-          Good
-        </button>
-        <button
-          type="button"
-          className="button-neutral"
-          onClick={this.props.handlerNeutral}
-        >
-          Neutral
-        </button>
-        <button
-          type="button"
-          className="button-bad"
-          onClick={this.props.handlerBad}
-        >
-          Bad
-        </button>
-      </Container>
-    );
-  }
-}
+export const FeedbackOptions = ({ responseHandler }: IFeedbackOptionsProps) => {
+  return (
+    <Container>
+      <button
+        type="button"
+        className="button-good"
+        value="good"
+        onClick={responseHandler}
+      >
+        Good
+      </button>
+      <button
+        type="button"
+        className="button-neutral"
+        value="neutral"
+        onClick={responseHandler}
+      >
+        Neutral
+      </button>
+      <button
+        type="button"
+        className="button-bad"
+        value="bad"
+        onClick={responseHandler}
+      >
+        Bad
+      </button>
+    </Container>
+  );
+};

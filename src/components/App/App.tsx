@@ -7,12 +7,6 @@ import { ModernNormalize } from 'emotion-modern-normalize';
 import { Container } from './App.styled';
 
 export class App extends React.Component<{}, IAppState> {
-  // static defaultProps = {
-  //   goodDefault: 0,
-  //   neutralDefault: 0,
-  //   badDefault: 0,
-  // };
-
   state: IAppState = {
     good: 0,
     neutral: 0,
@@ -24,12 +18,17 @@ export class App extends React.Component<{}, IAppState> {
   calcPositiveFeedback = (): string =>
     `${((this.state.good / this.calcTotal()) * 100).toFixed(0)}%`;
 
-  handleGoodResponse = (): void =>
-    this.setState(prevState => ({ good: prevState.good + 1 }));
-  handleNeutralResponse = (): void =>
-    this.setState(prevState => ({ neutral: prevState.neutral + 1 }));
-  handleBadResponse = (): void =>
-    this.setState(prevState => ({ bad: prevState.bad + 1 }));
+  handleResponse = (e: React.MouseEvent): void => {
+    const target = e.target as typeof e.target & {
+      value: string;
+    };
+    this.setState(
+      prevState =>
+        ({
+          [target.value]: prevState[target.value as keyof IAppState] + 1,
+        } as Pick<IAppState, keyof IAppState>)
+    );
+  };
   render() {
     return (
       <Container>
@@ -38,11 +37,7 @@ export class App extends React.Component<{}, IAppState> {
         <h2> This is my Feedback Widget</h2>
 
         <Section title="Please leave feedback">
-          <FeedbackOptions
-            handlerGood={this.handleGoodResponse}
-            handlerNeutral={this.handleNeutralResponse}
-            handlerBad={this.handleBadResponse}
-          />
+          <FeedbackOptions responseHandler={this.handleResponse} />
         </Section>
         <Section title="Statistics">
           <Statistics
