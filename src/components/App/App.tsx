@@ -2,9 +2,10 @@ import React from 'react';
 import { Statistics } from '../Statistics/Statistics';
 import { Section } from '../Section/Section';
 import { FeedbackOptions } from '../FeedbackOptions/FeedbackOptions';
-import { IAppState } from '../../interfaces';
 import { ModernNormalize } from 'emotion-modern-normalize';
 import { Container } from './App.styled';
+
+import { IAppState } from '../../interfaces';
 
 export class App extends React.Component<{}, IAppState> {
   state: IAppState = {
@@ -15,6 +16,7 @@ export class App extends React.Component<{}, IAppState> {
 
   calcTotal = (): number =>
     this.state.good + this.state.neutral + this.state.bad;
+
   calcPositiveFeedback = (): string =>
     `${((this.state.good / this.calcTotal()) * 100).toFixed(0)}%`;
 
@@ -29,6 +31,7 @@ export class App extends React.Component<{}, IAppState> {
         } as Pick<IAppState, keyof IAppState>)
     );
   };
+
   render() {
     return (
       <Container>

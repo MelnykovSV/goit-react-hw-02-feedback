@@ -13,12 +13,7 @@ export const Container = styled.div`
     color: ${colors.text.primary};
     transition: background-color ${animations.time} ${animations.cubic};
 
-    /* @media screen and (prefers-reduced-motion) {
-      transition: ;
-    } */
-
-    &:hover,
-    &:focus {
+    &:hover {
       background-color: ${colors.button.hover};
     }
   }
