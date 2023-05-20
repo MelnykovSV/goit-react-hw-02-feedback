@@ -1,8 +1,8 @@
 {
-  "name": "react-homework-template",
+  "name": "goit-react-hw-02-feedback",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://goitacademy.github.io/react-homework-template/",
+  "homepage": "https://MelnykovSV.github.io/goit-react-hw-02-feedback/",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
@@ -26,7 +26,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint:js": "eslint src/**/*.{js,jsx}"
+    "lint:js": "eslint src/**/*.{js,jsx,ts,tsx}"
   },
   "eslintConfig": {
     "extends": [
