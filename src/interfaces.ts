@@ -10,7 +10,7 @@ export interface ISectionProps {
 }
 
 export interface IFeedbackOptionsProps {
-  responseHandler: React.MouseEventHandler;
+  responseHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface IStatisticsProps {
