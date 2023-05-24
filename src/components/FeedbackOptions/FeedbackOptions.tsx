@@ -7,7 +7,7 @@ export const FeedbackOptions = ({ responseHandler }: IFeedbackOptionsProps) => {
       <button
         type="button"
         className="button-good"
-        value="good"
+        name="good"
         onClick={responseHandler}
       >
         Good
@@ -15,7 +15,7 @@ export const FeedbackOptions = ({ responseHandler }: IFeedbackOptionsProps) => {
       <button
         type="button"
         className="button-neutral"
-        value="neutral"
+        name="neutral"
         onClick={responseHandler}
       >
         Neutral
@@ -23,7 +23,7 @@ export const FeedbackOptions = ({ responseHandler }: IFeedbackOptionsProps) => {
       <button
         type="button"
         className="button-bad"
-        value="bad"
+        name="bad"
         onClick={responseHandler}
       >
         Bad

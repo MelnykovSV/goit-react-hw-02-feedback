@@ -20,13 +20,13 @@ export class App extends React.Component<{}, IAppState> {
   calcPositiveFeedback = (): string =>
     `${((this.state.good / this.calcTotal()) * 100).toFixed(0)}%`;
 
-  handleResponse = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    this.setState(
-      prevState =>
-        ({
-          [e.target.value]: prevState[e.target.value as keyof IAppState] + 1,
-        } as Pick<IAppState, keyof IAppState>)
-    );
+  handleResponse = (e: React.SyntheticEvent<HTMLButtonElement>): void => {
+    const name = e.currentTarget.name;
+
+    this.setState(prevState => ({
+      ...prevState,
+      [name]: prevState[name] + 1,
+    }));
   };
 
   render() {
